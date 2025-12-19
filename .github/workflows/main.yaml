@@ -13,16 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18  # Hexo 8 支持 Node 18+
+      - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      - name: Clean environment
+        run: |
+          rm -rf node_modules package-lock.json
+
       - name: Install dependencies
         run: |
-          npm install    # 安装 hexo 8 及所有插件
+          npm install   # 这里会重新生成正确的 node_modules
 
-      - name: Build site using Hexo 8
+      - name: Build Hexo 8 site
         run: |
           npx hexo clean
           npx hexo generate
