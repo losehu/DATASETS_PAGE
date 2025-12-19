@@ -30,9 +30,7 @@ jobs:
       run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
           git clone https://losehu:${{ secrets.GH_TOKEN }}@github.com/losehu/DATASETS_PAGE.git sources
-https://github.com/losehu/
           cd sources
           git checkout sources
           hexo clean
