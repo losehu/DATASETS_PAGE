@@ -1,4 +1,4 @@
-name: Build and Deploy Hexo
+name: Build and Deploy Hexo 8
 
 on:
   push:
@@ -10,28 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18
+      - name: Node 18 for Hexo 8
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Clean environment
+      - name: Clean old deps
         run: |
           rm -rf node_modules package-lock.json
 
-      - name: Install dependencies
+      - name: Install deps with override
         run: |
-          npm install   # 这里会重新生成正确的 node_modules
+          npm install
 
-      - name: Build Hexo 8 site
+      - name: Build site
         run: |
           npx hexo clean
           npx hexo generate
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         run: |
           cd public
           git init
