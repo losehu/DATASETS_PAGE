@@ -3,20 +3,20 @@ name: Build and Deploy Hexo
 on:
   push:
     branches:
-      - sources  
+      - sources
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Install dependencies
         run: |
@@ -28,7 +28,7 @@ jobs:
           hexo clean
           hexo generate
 
-      - name: Deploy to GitHub Pages repo
+      - name: Deploy to GitHub Pages
         run: |
           cd public
           git init
