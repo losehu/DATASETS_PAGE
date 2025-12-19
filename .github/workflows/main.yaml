@@ -1,4 +1,4 @@
-name: build html
+name: Build and Deploy Hexo
 
 on:
   push:
@@ -6,41 +6,35 @@ on:
       - sources
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
 
-    - name: Install Node.js and npm
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Install dependencies
+        run: |
+          npm install
 
-    - name: Install Hexo
-      run: npm install -g hexo-cli
+      - name: Build Hexo
+        run: |
+          npx hexo clean
+          npx hexo generate
 
-
-    - name: Install Hexo deployer
-      run: npm install hexo-deployer-git --save
-        
-    - name: upload
-      run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git clone https://losehu:${{ secrets.GH_TOKEN }}@github.com/losehu/DATASETS_PAGE.git sources
-
-          cd sources
-          git checkout sources
-          hexo clean
-          hexo generate
-          cd ../public
-          git config --global init.defaultBranch main
+      - name: Deploy
+        run: |
+          cd public
           git init
-          git remote add origin https://${{ secrets.GH_TOKEN }}@github.com/losehu/DATASETS_PAGE.git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "upload"
+          git commit -m "deploy"
+          git branch -M main
+          git remote add origin https://losehu:${{ secrets.GH_TOKEN }}@github.com/losehu/DATASETS_PAGE.git
           git push -u origin main --force
