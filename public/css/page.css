@@ -686,7 +686,7 @@ body.docs #nav {
 }
 .sidebar .sidebar-inner {
   width: 250px;
-  padding: 8px 20px 60px 60px;
+  padding: 8px 10px 60px 10px;
   margin-bottom: 4em;
 }
 .sidebar .sidebar-inner .footer {
@@ -1369,10 +1369,15 @@ sup {
   .content {
     padding-left: 150px;
   }
+  .content.with-sidebar {
+    margin-left: 100px;
+    max-width: calc(100% - 100px);
+    padding-right: 10px;
+  }
 }
 @media screen and (max-width: 1300px) {
   .content.with-sidebar {
-    margin-left: 260px;
+    margin-left: 100px;
   }
   #ad {
     z-index: 1;

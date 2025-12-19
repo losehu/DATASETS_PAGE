@@ -327,9 +327,15 @@
 @media screen and (min-width: 1300px)
   .content
     padding-left: 150px
+  
+  /* 当页面包含侧边栏时，让正文宽度根据视口自适应，减少右侧空白 */
+  .content.with-sidebar
+    margin-left: 100px
+    max-width: calc(100% - 100px)
+    padding-right: 10px
 @media screen and (max-width: 1300px)
   .content.with-sidebar
-    margin-left: 260px
+    margin-left: 100px
   #ad
     z-index: 1
     position: relative

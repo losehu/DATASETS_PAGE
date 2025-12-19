@@ -50,7 +50,7 @@
     });
     var bg = page.title_pic || (homePage && homePage.title_pic) ;
   %>
-  <div class='resume-header' style="background-image: url('<%- url_for(bg) %>'); background-position: center center; background-repeat: no-repeat; background-size: contain; min-height: 260px; padding: 24px 0;">
+  <div class='resume-header' style="background-image: url('<%- url_for(bg) %>'); background-position: center center; background-repeat: no-repeat; background-size: auto 90%; background-color: #ffffff; min-height: 500px; padding: 24px 0;">
     <% if (page.avatar) { %>
       <div class='avatar'><img no-lazy class='avatar' src='<%- page.avatar %>'/></div>
     <% } %>

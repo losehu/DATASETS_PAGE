@@ -24,7 +24,7 @@ contact:
     url:  
 
 picture:
-  url:  ./map_v2.png" 
+  url: ./map_v2.png
   blogname: <a href="https://clustrmaps.com/site/1byz2">Visitor traffic</a><br>
 
 
