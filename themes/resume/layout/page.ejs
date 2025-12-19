@@ -67,27 +67,7 @@
   </div>
   <%- page.content %>
 
-  <% if (theme.valine ){ %>    <!-- Valine Comments background-image: linear-gradient(to right top, #d6d9d7, #d9dddc, #dde1e0, #e1e4e5, #e5e8e9, #d3e1e8, #c5d8e9, #bcceea, #a1b5e5, #8e9ade, #857ed3, #845ec2);  -->    
-   
-    <section class="comments" id="comments"  
-    style="margin-top:40px;padding:15px 15px 1px 10px;
- background-color: #fff;   box-shadow: 0px 0px 40px #845ec2;border-radius: 10px;">
-    </section> 
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>   
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>    
-    <!-- Valine Comments script -->    
-    <script>             
-          new Valine({            
-            el: '#comments',                      
-            appId: "<%= theme.valine.appId %>",            
-            appKey: "<%= theme.valine.appKey %>",            
-            avatar: "<%= theme.valine.avatar %>", 
-            placeholder: "<%= theme.valine.placeholder %>",                  
-            pageSize: "<%= theme.valine.pageSize %>",       
-          })		     	    
-     </script>    
-             <!-- Valine Comments end -->
-  <% } %>
+  <!-- 已移除 Valine 留言板：如果需要恢复，请在主题配置中设置 `theme.valine` 并还原此代码块 -->
 <!-- bu suan zi tong ji -->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
  
