@@ -3,13 +3,8 @@
 lang: zh-cn
 # 网页关键词和描述
 keywords: PANO DATASETS,CVPU,PANO
-description: PANO DATASETS.
-# 简历标题
-resume_title: Losehu
-# 应聘者姓名
 name: PANO DATASETS
-avatar: /losehu.jpg
-# background_pic: /losehu.jpg
+title_pic : 1.png
 # 联系方式
 contact:
   - icon: fab fa-github

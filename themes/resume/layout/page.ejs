@@ -44,12 +44,17 @@
 </div>
 
 <div class="content with-sidebar" style="font-family: Microsoft YaHei; font-size: 1em;">
-  <div class='resume-header'style="background: #845ec2 ;">
+  <% 
+    var homePage = (site.pages || []).find(function(p){
+      return p.source === 'source/index.md' || p.path === 'index.html' || (p.source && p.source.indexOf('index.md') !== -1 && p.path && p.path.indexOf('index') !== -1);
+    });
+    var bg = page.title_pic || (homePage && homePage.title_pic) ;
+  %>
+  <div class='resume-header' style="background-image: url('<%- url_for(bg) %>'); background-position: center center; background-repeat: no-repeat; background-size: contain; min-height: 260px; padding: 24px 0;">
     <% if (page.avatar) { %>
       <div class='avatar'><img no-lazy class='avatar' src='<%- page.avatar %>'/></div>
     <% } %>
 
-    <h1 class='resume-title'  style="color:#fff;font-family: Times New Roman;font-size: 2.4em;"><%- page.name %></h1>
     <b><p class='description' style="color:#fff;font-family: Arial;"><%- page.description %></p></b>
 
     <% if (page.social) { %>
