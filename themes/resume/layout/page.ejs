@@ -16,9 +16,11 @@
     <div class="list" style="font-family: Times New Roman;">
       <ul class="menu-root">
         <% site.pages.sort('order').each(function (p) { %>
-          <li>
-            <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
-          </li>
+          <% if (!p.hide_from_sidebar) { %>
+            <li>
+              <a href="<%- url_for(p.path) %>" class="sidebar-link<%- page.title === p.title ? ' current' : '' %><%- p.is_new ? ' new' : '' %>"><%- p.title %></a>
+            </li>
+          <% } %>
         <% }) %>
       </ul>
     </div>
